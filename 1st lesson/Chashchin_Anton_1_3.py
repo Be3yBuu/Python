@@ -1,4 +1,4 @@
-text_list = ['процент', 'процента', 'процентов']
+text_list = [' процент', ' процента', ' процентов']
 
 
 def percent(var):
@@ -8,7 +8,7 @@ def percent(var):
         text_list_var = 0
     else:
         text_list_var = 1
-    print(str(var) + ' ' + text_list[text_list_var])
+    print(str(var) + text_list[text_list_var])
 
 
 percent_input = int(input('Введите число: '))
