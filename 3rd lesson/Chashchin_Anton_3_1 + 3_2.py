@@ -15,6 +15,6 @@ def num_translate(number):
         if number.istitle():
             print(dictionary[number.lower()].capitalize())
         else:
-            print(dictionary[number.lower()])
+            print(dictionary[number])
     else:
         print(None)
