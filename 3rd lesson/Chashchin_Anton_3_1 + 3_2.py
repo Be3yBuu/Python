@@ -11,10 +11,10 @@ def num_translate(number):
                   'nine': 'девять',
                   'ten': 'десять'
                   }
-    if number.istitle():
-        try:
-            print(dictionary.pop(number.lower()).capitalize())
-        except KeyError:
-            print(None)
+    if number.lower() in dictionary:
+        if number.istitle():
+            print(dictionary[number.lower()].capitalize())
+        else:
+            print(dictionary[number.lower()])
     else:
-        print(dictionary.pop(number.lower(), None))
+        print(None)
