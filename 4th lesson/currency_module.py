@@ -8,10 +8,10 @@ def currency_rates(*val):
         date_var = dt.strptime(re.findall(r'(\d+.\d+.\d+)', xml_currency[2])[0], "%d.%m.%Y")
         if len(cur_val) == 3:
             if not cur_val.isdigit():
-                for string in range(0, len(xml_currency)-1):
+                for string in range(0, len(xml_currency) - 1):
                     match = re.search(cur_val.upper(), xml_currency[string])
                     if match:
-                        xml_to_list = xml_currency[string+6].split('>')[1].split(',')
+                        xml_to_list = xml_currency[string + 6].split('>')[1].split(',')
                         value = float(xml_to_list[0]) + (float(xml_to_list[1]) * (pow(10, -len(xml_to_list[1]))))
                         break
                 else:
@@ -25,3 +25,5 @@ def currency_rates(*val):
 
 xml_currency = requests.get('http://www.cbr.ru/scripts/XML_daily.asp').text.split('<')
 
+# При использовании Decimal усложнение будет минимальным, единственным необходимым шагом будет приведение
+# значения курса к сотым долям при отображении
