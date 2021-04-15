@@ -17,7 +17,7 @@ def currency_rates(*val):
                 else:
                     value = None
             else:
-                value = 'no numbers allowed is currency name'
+                value = 'no numbers allowed in currency name'
         else:
             value = 'currency has to be 3 digits'
         return [date_var.date(), value, cur_val]
