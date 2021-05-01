@@ -31,10 +31,7 @@ def make_structure(structure):
             str_dir = os.path.join(directory, item)
             file = open(str_dir, 'w')
             file.close()
-            if len(structure) != 1:
-                if structure[-1] == item:
-                    directory = '\\'.join(directory.split('\\')[:-1])
-            if len(structure) == 1:
+            if len(structure) != 1 and structure[-1] == item or len(structure) == 1:
                 directory = '\\'.join(directory.split('\\')[:-1])
         elif type(item) is list:
             if len(item) != 0:
