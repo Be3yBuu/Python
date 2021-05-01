@@ -11,4 +11,3 @@ def email_parse(email_address):
 
 
 print(email_parse('d123dsFg@sdf12.ru'))
-# я считаю, что re.compile тут не нужен, мы всё равно проверяем целую строку на наличие в ней шаблона, от ^ до $
