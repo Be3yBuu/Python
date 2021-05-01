@@ -1,8 +1,8 @@
-def val_checker():
+def val_checker(lamb):
     def positive(func):
         def wrapper(*args):
             result = func(*args)
-            if args[0] < 0:
+            if not lamb(*args):
                 raise ValueError('wrong val ' + str(args[0]))
             return result
 
@@ -11,10 +11,11 @@ def val_checker():
     return positive
 
 
-@val_checker()
+@val_checker(lambda x: x > 0)
 def calc_cube(x):
     return x ** 3
 
 
 print(calc_cube(5))
 print(calc_cube(-5))
+
