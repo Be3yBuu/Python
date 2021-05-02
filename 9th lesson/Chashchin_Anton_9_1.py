@@ -12,9 +12,6 @@ class TrafficLights:
         window = Tk()
         window.title("Traffic Light")
 
-        frame = Frame(window)
-        frame.pack()
-
         self.canvas = Canvas(window, width=340, height=120, bg="white")
         self.canvas.pack()
 
