@@ -18,10 +18,10 @@ class TrafficLights:
         self.oval_red = self.canvas.create_oval(10, 10, 110, 110, fill="white", outline=_color[0])
         self.oval_yellow = self.canvas.create_oval(120, 10, 220, 110, fill="white", outline=_color[1])
         self.oval_green = self.canvas.create_oval(230, 10, 330, 110, fill="white", outline=_color[2])
-        self.running()
+        self.running(_color)
 
-    def running(self):
-        for item in cycle(background):
+    def running(self, col):
+        for item in cycle(col):
             if item == 'red':
                 self.canvas.itemconfigure(self.oval_red, fill='red')
                 self.canvas.itemconfigure(self.oval_green, fill='white')
