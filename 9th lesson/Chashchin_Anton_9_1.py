@@ -9,12 +9,13 @@ class TrafficLights(Tk):
 
     def __init__(self):
         super().__init__()
-        self.canvas = Canvas(self, width=240, height=340, bg="white")
-        self.canvas.grid()
+        self.canvas = Canvas(self, width=240, height=340, bg="black")
+        self.canvas.pack()
+        self.resizable(width=False, height=False)
 
-        self.oval_red = self.canvas.create_oval(10, 10, 110, 110, fill="white", outline=self._color[0])
-        self.oval_yellow = self.canvas.create_oval(10, 120, 110, 220, fill="white", outline=self._color[1])
-        self.oval_green = self.canvas.create_oval(10, 230, 110, 330, fill="white", outline=self._color[2])
+        self.oval_red = self.canvas.create_oval(70, 10, 170, 110, fill="white", outline=self._color[0])
+        self.oval_yellow = self.canvas.create_oval(70, 120, 170, 220, fill="white", outline=self._color[1])
+        self.oval_green = self.canvas.create_oval(70, 230, 170, 330, fill="white", outline=self._color[2])
         self.running()
 
     def running(self):
