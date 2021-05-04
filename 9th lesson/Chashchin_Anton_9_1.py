@@ -2,13 +2,12 @@ from tkinter import *
 from time import sleep
 from itertools import cycle
 
-background = ['red', 'yellow', 'green']
+run = {'red': 7, 'yellow': 2, 'green': 5}
 
 
 class TrafficLights:
-
     def __init__(self, color):
-        _color = [color[0], color[1], color[2]]
+        _color = color
         window = Tk()
         window.title("Traffic Light")
 
@@ -22,21 +21,17 @@ class TrafficLights:
 
     def running(self, col):
         for item in cycle(col):
+            self.canvas.itemconfigure(self.oval_red, fill='white')
+            self.canvas.itemconfigure(self.oval_yellow, fill='white')
+            self.canvas.itemconfigure(self.oval_green, fill='white')
             if item == 'red':
                 self.canvas.itemconfigure(self.oval_red, fill='red')
-                self.canvas.itemconfigure(self.oval_green, fill='white')
-                self.canvas.update()
-                sleep(7)
             if item == 'yellow':
                 self.canvas.itemconfigure(self.oval_yellow, fill='yellow')
-                self.canvas.itemconfigure(self.oval_red, fill='white')
-                self.canvas.update()
-                sleep(2)
             if item == 'green':
                 self.canvas.itemconfigure(self.oval_green, fill='green')
-                self.canvas.itemconfigure(self.oval_yellow, fill='white')
-                self.canvas.update()
-                sleep(5)
+            self.canvas.update()
+            sleep(run[item])
 
 
-light = TrafficLights(background)
+light = TrafficLights(list(run))
