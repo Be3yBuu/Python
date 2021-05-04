@@ -9,19 +9,18 @@ class TrafficLights(Tk):
 
     def __init__(self):
         super().__init__()
-        self.canvas = Canvas(self, width=340, height=120, bg="white")
+        self.canvas = Canvas(self, width=240, height=340, bg="white")
         self.canvas.grid()
 
         self.oval_red = self.canvas.create_oval(10, 10, 110, 110, fill="white", outline=self._color[0])
-        self.oval_yellow = self.canvas.create_oval(120, 10, 220, 110, fill="white", outline=self._color[1])
-        self.oval_green = self.canvas.create_oval(230, 10, 330, 110, fill="white", outline=self._color[2])
+        self.oval_yellow = self.canvas.create_oval(10, 120, 110, 220, fill="white", outline=self._color[1])
+        self.oval_green = self.canvas.create_oval(10, 230, 110, 330, fill="white", outline=self._color[2])
         self.running()
 
     def running(self):
         global light_number
-        self.canvas.itemconfigure(self.oval_red, fill='white')
-        self.canvas.itemconfigure(self.oval_yellow, fill='white')
-        self.canvas.itemconfigure(self.oval_green, fill='white')
+        for item in self._color:
+            exec(f"self.canvas.itemconfigure(self.oval_{item}, fill='white')")
         exec(f"self.canvas.itemconfigure(self.oval_{self._color[light_number]}, fill='{self._color[light_number]}')")
         light_number += 1
         if light_number == 3:
