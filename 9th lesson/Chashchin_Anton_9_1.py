@@ -10,6 +10,7 @@ class TrafficLights(Tk):
         self.canvas = Canvas(self, width=240, height=340, bg="black")
         self.canvas.pack()
         self.resizable(width=False, height=False)
+        self.title('Traffic Lights')
 
         self.oval_red = self.canvas.create_oval(70, 10, 170, 110)
         self.oval_yellow = self.canvas.create_oval(70, 120, 170, 220)
