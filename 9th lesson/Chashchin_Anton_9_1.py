@@ -11,14 +11,14 @@ class TrafficLights(Tk):
         self.canvas.pack()
         self.resizable(width=False, height=False)
 
-        self.oval_red = self.canvas.create_oval(70, 10, 170, 110, fill="white", outline=list(self._color)[0])
-        self.oval_yellow = self.canvas.create_oval(70, 120, 170, 220, fill="white", outline=list(self._color)[1])
-        self.oval_green = self.canvas.create_oval(70, 230, 170, 330, fill="white", outline=list(self._color)[2])
+        self.oval_red = self.canvas.create_oval(70, 10, 170, 110)
+        self.oval_yellow = self.canvas.create_oval(70, 120, 170, 220)
+        self.oval_green = self.canvas.create_oval(70, 230, 170, 330)
         self.running()
 
     def running(self):
         for item in list(self._color):
-            exec(f"self.canvas.itemconfigure(self.oval_{item}, fill='white')")
+            exec(f"self.canvas.itemconfigure(self.oval_{item}, fill='grey')")
         exec(f"self.canvas.itemconfigure(self.oval_{list(self._color)[self.light_number]},"
              f" fill='{list(self._color)[self.light_number]}')")
         self.light_number += 1
