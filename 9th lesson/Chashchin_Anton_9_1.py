@@ -2,8 +2,8 @@ from tkinter import Tk, Canvas
 
 
 class TrafficLights(Tk):
-    _color = {'red': 7000, 'yellow': 2000, 'green': 5000}
-    light_number = 0
+    __color = {'red': 7000, 'yellow': 2000, 'green': 5000}
+    __light_number = 0
 
     def __init__(self):
         super().__init__()
@@ -18,14 +18,14 @@ class TrafficLights(Tk):
         self.running()
 
     def running(self):
-        for item in list(self._color):
+        for item in list(self.__color):
             exec(f"self.canvas.itemconfigure(self.oval_{item}, fill='grey')")
-        exec(f"self.canvas.itemconfigure(self.oval_{list(self._color)[self.light_number]},"
-             f" fill='{list(self._color)[self.light_number]}')")
-        self.light_number += 1
-        if self.light_number == 3:
-            self.light_number = 0
-        self.after(self._color[list(self._color)[self.light_number - 1]], self.running)
+        exec(f"self.canvas.itemconfigure(self.oval_{list(self.__color)[self.__light_number]},"
+             f" fill='{list(self.__color)[self.__light_number]}')")
+        self.__light_number += 1
+        if self.__light_number == 3:
+            self.__light_number = 0
+        self.after(self.__color[list(self.__color)[self.__light_number - 1]], self.running)
 
 
 root = TrafficLights()
