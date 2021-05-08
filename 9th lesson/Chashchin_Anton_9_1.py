@@ -22,10 +22,9 @@ class TrafficLights(Tk):
             exec(f"self.canvas.itemconfigure(self.oval_{item}, fill='grey')")
         exec(f"self.canvas.itemconfigure(self.oval_{list(self.__color)[self.__light_number]},"
              f" fill='{list(self.__color)[self.__light_number]}')")
+        self.after(self.__color[list(self.__color)[self.__light_number]], self.running)
         self.__light_number += 1
-        if self.__light_number == 3:
-            self.__light_number = 0
-        self.after(self.__color[list(self.__color)[self.__light_number - 1]], self.running)
+        self.__light_number %= 3
 
 
 root = TrafficLights()
